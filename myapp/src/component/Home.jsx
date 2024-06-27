@@ -1,6 +1,7 @@
 import React , { useContext } from 'react'
 import Banner from './Banner'
 import { AuthContext } from '../context/AuthProvider'; // Assuming correct path to AuthProvider
+import Cards from './Cards';
 
 
 export const Home = () => {
@@ -8,7 +9,10 @@ export const Home = () => {
   return (
    <>
     {user && (
+      <>
       <Banner/>
+      <Cards/>
+      </>
     )}
    </>
   )
