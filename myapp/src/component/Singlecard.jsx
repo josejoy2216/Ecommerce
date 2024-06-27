@@ -8,7 +8,7 @@ function Singlecard() {
     const[loading , setLoading] = useState(true)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/filter-book/${id}`)
+        fetch(`http://localhost:5000/find-book/${id}`)
         .then((response)=> response.json()
         ).then((data)=>{
             setbooks(data)
@@ -22,12 +22,10 @@ function Singlecard() {
     }
   return (
     <>
-        {books.map((book , index)=>(
             <div className="row">
-                <div className="col-md-6"><img src={book.bookImage} className="card-img-top" alt="..." /></div>
-                <div className="col-md-6">{book.bookDescription}</div>
+                <div className="col-md-6"><img src={books.bookImage} className="card-img-top" alt="..." /></div>
+                <div className="col-md-6">{books.bookDescription}</div>
             </div>
-        ))}
     </>
   )
 }

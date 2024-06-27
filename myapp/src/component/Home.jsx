@@ -11,6 +11,7 @@ export const Home = () => {
     {user && (
       <>
       <Banner/>
+      <br/>
       <Cards/>
       </>
     )}

@@ -20,7 +20,6 @@ function Main() {
           <Route path="/Register" element={<Register/>} />
           <Route path="/Singlecard/:id" element={<Singlecard/>}/>
 
-
         </Routes>
       
     </div>

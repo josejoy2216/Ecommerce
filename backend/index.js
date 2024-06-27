@@ -66,6 +66,27 @@ async function run() {
       res.send(result)
     })
 
+    app.get("/find-book/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log('Requested ID:', id); // Check if ID is correctly captured
+    
+      try {
+        const book = await bookCollection.findOne({ _id: new ObjectId(id) });
+    
+        if (!book) {
+          return res.status(404).send("Book not found");
+        }
+    
+        res.send(book);
+      } catch (error) {
+        console.error("Error finding book:", error);
+        res.status(500).send("Error finding book");
+      }
+    });
+    
+    
+    
+
     app.delete("/delete-book/:id", async (req,res)=> {
       const id = req.params.id
       const result = await bookCollection.deleteOne({_id: new ObjectId(id)}) 

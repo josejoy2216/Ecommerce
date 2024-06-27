@@ -19,10 +19,10 @@ const Card = () => {
     <div>
         <div className="row">
             {books.map((book , index)=>(
-
+            <>
 
             <div className="col-md-4">
-            <div class="card" >
+            <div className="card" >
                 <img src={book.bookImage} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{book.bookName}</h5>
@@ -31,6 +31,9 @@ const Card = () => {
                     </div>
                 </div>
             </div>
+            <br/>
+
+            </>
         ))}
 
         </div> 

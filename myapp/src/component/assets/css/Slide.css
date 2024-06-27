@@ -1,6 +1,6 @@
 .swiper {
-    width: 240px;
-    height: 320px;
+    width: 255px;
+    height: 398px;
   }
   
   .swiper-slide {
@@ -12,7 +12,7 @@
     font-weight: bold;
     color: #fff;
     background-size: cover;
-    padding: 55px;
+    padding-left: 10px;
 
   }
   
@@ -56,4 +56,8 @@
   .swiper-slide:nth-child(10n) {
     background-image: url("../img/book10.jpg");
   }
+  
+
+
+
   
