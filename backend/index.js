@@ -21,8 +21,6 @@ app.get('/contact', (req , res)=>{
 
 
 
-
-
 //mongodb connection -------------------------
 const { MongoClient, ServerApiVersion , ObjectId } = require('mongodb');
 const uri = "mongodb+srv://root:root@cluster0.8ft6z9g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
