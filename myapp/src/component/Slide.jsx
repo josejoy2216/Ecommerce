@@ -20,15 +20,16 @@ const Slide = () => {
       modules={[EffectCards]}
       className="mySwiper"
     >
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
-      <SwiperSlide></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+      <SwiperSlide className='Swiperslide'></SwiperSlide>
+
+
     </Swiper>
   </>
   )

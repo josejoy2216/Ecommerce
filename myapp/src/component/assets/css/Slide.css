@@ -1,6 +1,12 @@
-.swiper {
-    width: 255px;
-    height: 398px;
+.card{
+  width: '20rem';
+  background-color: #F6E6CB;
+  margin: 20px;
+}
+
+.mySwiper {
+    width: 191.25px;
+    height: 298.5px;
   }
   
   .swiper-slide {
@@ -16,48 +22,47 @@
 
   }
   
-  .swiper-slide:nth-child(1n) {
+  .Swiperslide:nth-child(1n) {
     background-image: url("../img/book1.jpg");
     
   }
   
-  .swiper-slide:nth-child(2n) {
+  .Swiperslide:nth-child(2n) {
     background-image: url("../img/book2.jpg");
   }
   
-  .swiper-slide:nth-child(3n) {
+  .Swiperslide:nth-child(3n) {
     background-image: url("../img/book3.jpg");
   }
   
-  .swiper-slide:nth-child(4n) {
+  .Swiperslide:nth-child(4n) {
     background-image: url("../img/book4.jpg");
   }
   
-  .swiper-slide:nth-child(5n) {
+  .Swiperslide:nth-child(5n) {
     background-image: url("../img/book5.jpg");
   }
   
-  .swiper-slide:nth-child(6n) {
+  .Swiperslide:nth-child(6n) {
     background-image: url("../img/book6.jpg");
   }
   
-  .swiper-slide:nth-child(7n) {
+  .Swiperslide:nth-child(7n) {
     background-image: url("../img/book7.jpg");
   }
   
-  .swiper-slide:nth-child(8n) {
+  .Swiperslide:nth-child(8n) {
     background-image: url("../img/book8.jpg");
   }
   
-  .swiper-slide:nth-child(9n) {
+  .Swiperslide:nth-child(9n) {
     background-image: url("../img/book9.jpg");
   }
   
-  .swiper-slide:nth-child(10n) {
+  .Swiperslide:nth-child(10n) {
     background-image: url("../img/book10.jpg");
   }
   
 
 
 
-  

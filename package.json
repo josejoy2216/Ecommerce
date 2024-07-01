@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@nextui-org/card": "^2.0.31",
     "swiper": "^11.1.4"
   }
 }

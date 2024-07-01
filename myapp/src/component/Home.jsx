@@ -1,7 +1,9 @@
 import React , { useContext } from 'react'
 import Banner from './Banner'
 import { AuthContext } from '../context/AuthProvider'; // Assuming correct path to AuthProvider
-import Cards from './Cards';
+import Maincard from './Maincard';
+import Authors from './Authors';
+import Footer from './Footer';
 
 
 export const Home = () => {
@@ -10,9 +12,16 @@ export const Home = () => {
    <>
     {user && (
       <>
+      <br />
       <Banner/>
       <br/>
-      <Cards/>
+      <Authors/>
+      <br />
+      <Maincard/> 
+      <br />
+      <Maincard/>
+      <br />
+      <Footer/>
       </>
     )}
    </>

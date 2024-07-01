@@ -5,6 +5,11 @@ import { Login } from './component/Login';
 import { Navbar } from './component/Navbar';
 import { Register } from './component/Register';
 import Singlecard from './component/Singlecard';
+import DashboardLayout from './component/dashboard/DashboardLayout';
+import Upload from './component/dashboard/Upload';
+import Manage from './component/dashboard/Manage';
+
+import "./component/assets/css/bgtxt.css"
 function Main() {
 
   const location = useLocation()
@@ -19,7 +24,10 @@ function Main() {
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
           <Route path="/Singlecard/:id" element={<Singlecard/>}/>
-
+          <Route path="/admin/dashboard" element={<DashboardLayout/>}>
+            <Route path="manage" element={<Manage/>}/>
+            <Route path="upload" element={<Upload/>}/>
+          </Route>
         </Routes>
       
     </div>
@@ -28,9 +36,11 @@ function Main() {
 }
 function App(){
   return(
-    <Router>
-      <Main/>
-    </Router>
+    <div className="main-container">
+      <Router>
+        <Main />
+      </Router>
+    </div>
   )
 }
 export default App;

@@ -40,12 +40,38 @@ async function run() {
     await client.connect();
     const productCollection = client.db("productInventory").collection("products")
     const bookCollection = client.db("bookInventory").collection("books")
+    const authorCollection = client.db("bookInventory").collection("authors")
 
-    app.post("/upload-product", async (req,res)=> {
-        const data = req.body
-        const result = await productCollection.insertOne(data)
-        res.send(result)
-    })
+    // Route to upload a product
+    app.post("/upload-product", async (req, res) => {
+      const data = req.body;
+      try {
+        const result = await productCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.status(500).send({ error: 'Failed to insert product' });
+      }
+    });
+
+    // Route to upload an author
+    app.post("/upload-author", async (req, res) => {
+      const data = req.body;
+      try {
+        const result = await authorCollection.insertOne(data);
+        res.send(result);
+      } catch (error) {
+        res.status(500).send({ error: 'Failed to insert author' });
+      }
+    });
+
+    app.get('/all-author', async (req, res) => {
+      try {
+        const authors = await authorCollection.find().toArray();
+        res.send(authors);
+      } catch (error) {
+        res.status(500).send({ error: 'Failed to fetch authors' });
+      }
+    });
 
     app.post("/upload-book", async (req,res)=> {
       const data = req.body
@@ -62,7 +88,7 @@ async function run() {
     app.get("/filter-book/:category", async (req,res)=> {
       const category = req.params.category
       const book = bookCollection.find({category:category})
-      const result = await book.toArray()  
+      const result = await book.toArray()   
       res.send(result)
     })
 
@@ -84,14 +110,25 @@ async function run() {
       }
     });
     
+    app.delete("/delete-book/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log('Requested ID:', id); // Check if ID is correctly captured
     
+      try {
+        const book = await bookCollection.deleteOne({ _id: new ObjectId(id) });
+    
+        if (!book) {
+          return res.status(404).send("Book not found");
+        }
+    
+        res.send(book);
+      } catch (error) {
+        console.error("Error finding book:", error);
+        res.status(500).send("Error finding book");
+      }
+    });
     
 
-    app.delete("/delete-book/:id", async (req,res)=> {
-      const id = req.params.id
-      const result = await bookCollection.deleteOne({_id: new ObjectId(id)}) 
-      res.send(result)
-    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

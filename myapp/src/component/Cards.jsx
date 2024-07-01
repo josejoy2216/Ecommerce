@@ -1,44 +1,68 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Card = () => {
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
-    const [books , setbooks] = useState([])
+import "./assets/css/bgtxt.css";
 
-    useEffect(()=>{
-            fetch("http://localhost:5000/all-book")
-            .then((response)=>
-                response.json()
-            ).then((data)=>{
-                setbooks(data)
-                console.log(data)
-            })
-    },[]) // added [] so that it does not refresh infanitly
+import { EffectCoverflow, Pagination } from 'swiper/modules';
 
-  return (
-    <div>
-        <div className="row">
-            {books.map((book , index)=>(
-            <>
 
-            <div className="col-md-4">
-            <div className="card" >
-                <img src={book.bookImage} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{book.bookName}</h5>
-                        <p className="card-text">{book.bookDescription}</p>
-                        <Link to={`./Singlecard/${book._id}`} className="btn btn-primary"> Know more </Link>
-                    </div>
-                </div>
+const Cards = () => {
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/all-book")
+            .then((response) => response.json())
+            .then((data) => {
+                setBooks(data);
+                console.log(data);
+            });
+    }, []);
+
+    return (
+        <div>
+            <div className="row">
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[EffectCoverflow, Pagination]}
+                    className="myCard"
+                >
+                    {books.map((book, index) => (
+                        <SwiperSlide className='swipers' key={index}>
+                            <div className="col-md-12">
+                                <div className="card cards">
+                                    <img src={book.bookImage} className="card-img-top bookimg" alt="..." />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{book.bookName}</h5>
+                                        <p className="card-text description">{book.bookDescription}</p>
+                                        <Link to={`./Singlecard/${book._id}`} className="btn btn-primary">Know more</Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
-            <br/>
+        </div>
+    );
+};
 
-            </>
-        ))}
-
-        </div> 
-    </div>
-  )
-}
-
-export default Card
+export default Cards
