@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./css/dashboard.css";
+import "./css/dashboard.css"
 
 const Upload = () => {
   const [bookName, setBookName] = useState('');
@@ -28,7 +28,11 @@ const Upload = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(bookData),
-      });
+      })
+      // .then((data) => {
+      //       alert("Book uploaded Successfully")
+
+      // })
 
       if (response.ok) {
         const result = await response.json();
@@ -39,6 +43,7 @@ const Upload = () => {
         setBookDescription('');
         setBookImage('');
         setBookCategory('');
+        alert("Book uploaded Successfully")
       } else {
         console.error("Failed to upload book");
       }
@@ -50,12 +55,12 @@ const Upload = () => {
   return (
     <div>
       <h2>Upload Book</h2>
-      <div className="container mt-5 mb-5">
+      <div className="container mt-5 mb-5 color">
         <div className="card custom-glass-card shadow-sm">
-          <div className="card-body">
+          <div className="card-body ">
             <h5 className="card-title">Add a New Book</h5>
             <form onSubmit={handleSubmit}>
-              <table className="table borderless">
+              <table className="table borderless ">
                 <tbody>
                   <tr>
                     <td><label htmlFor="bookName">Book Name:</label></td>
@@ -110,6 +115,9 @@ const Upload = () => {
                         <option value="Science">Science</option>
                         <option value="History">History</option>
                         <option value="Fantasy">Fantasy</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Thriller">Thriller</option>
                         {/* Add more categories as needed */}
                       </select>
                     </td>

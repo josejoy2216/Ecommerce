@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-
-import "./assets/css/bgtxt.css";
-
+import './assets/css/bgtxt.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import useFetchBooks from './useFetchBooks';
 
+const Cards = ({ category }) => {
+    const { books, loading, error } = useFetchBooks(category);
 
-const Cards = () => {
-    const [books, setBooks] = useState([]);
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    useEffect(() => {
-        fetch("http://localhost:5000/all-book")
-            .then((response) => response.json())
-            .then((data) => {
-                setBooks(data);
-                console.log(data);
-            });
-    }, []);
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     return (
         <div>
@@ -49,7 +44,7 @@ const Cards = () => {
                         <SwiperSlide className='swipers' key={index}>
                             <div className="col-md-12">
                                 <div className="card cards">
-                                    <img src={book.bookImage} className="card-img-top bookimg" alt="..." />
+                                    <img src={book.bookImage} className="card-img-top bookimg" alt="Book Cover" />
                                     <div className="card-body">
                                         <h5 className="card-title">{book.bookName}</h5>
                                         <p className="card-text description">{book.bookDescription}</p>
@@ -65,4 +60,4 @@ const Cards = () => {
     );
 };
 
-export default Cards
+export default Cards;

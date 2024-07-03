@@ -38,7 +38,7 @@ const Manage = () => {
                         <th>Book Name</th>
                         <th>Author Name</th>
                         <th>Category</th>
-                        <th>Manage</th>
+                        <th colSpan={2} align='center'>Manage</th>
                     </tr>
             </thead>
             <tbody>
@@ -50,6 +50,8 @@ const Manage = () => {
                         <td> {book.category} </td>
                         <td> <button  onClick={() => deleteBook(book._id)} 
                         className='btn btn-outline-danger'> Delete  </button></td>
+                        <td> <button  onClick={() => 90} 
+                        className='btn btn-outline-success'> Edit  </button></td>
                     </tr>
              ))}
                     
