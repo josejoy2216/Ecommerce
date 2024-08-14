@@ -55,6 +55,7 @@ const Upload = () => {
   return (
     <div>
       <h2>Upload Book</h2>
+      <hr />
       <div className="container mt-5 mb-5 color">
         <div className="card custom-glass-card shadow-sm">
           <div className="card-body ">
