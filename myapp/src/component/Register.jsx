@@ -22,6 +22,7 @@ export const Register = () => {
         const email = event.target.email.value
         const password = event.target.password.value
         createUser(email , password).then((userCredentials)=>{
+            navigate("/", {replace:true})
             console.log(userCredentials.user)
         }).catch((error)=>{
             console.log(error)
