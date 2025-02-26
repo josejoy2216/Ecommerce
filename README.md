@@ -38,7 +38,7 @@ BookStore is an e-commerce application built using the MERN (MongoDB, Express, R
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/bookstore.git
+   git clone https://github.com/josejoy2216/bookstore.git
 
 2. **Install dependencies:**
 Navigate to the project directory and run:
